@@ -34,3 +34,6 @@ puts operator(nil)          # Argument was nil
 ```
 puts 100&.upcase        # undefined method `upcase' for 100:Integer (NoMethodError)
 ```
+
+## 論理演算子 ||
+
