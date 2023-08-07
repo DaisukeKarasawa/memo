@@ -35,5 +35,43 @@ puts operator(nil)          # Argument was nil
 puts 100&.upcase        # undefined method `upcase' for 100:Integer (NoMethodError)
 ```
 
-## 論理演算子 ||
+## 論理演算子: 論理和 ||
 
+左辺から評価し、左辺が偽の場合は右辺の評価する。左辺が真の場合その時点で左辺の値を返す。
+
+`||` の挙動を利用することで、変数が偽または未定義の時にデフォルト値を設定することができる。
+
+```
+# A || B が成立するパターン
+
+A = true, B = true      # 両方がtrue
+A = true, B = false     # 片方がtrue
+A = false, B = true     # 片方がtrue
+```
+
+論理和は以下のような使い方ができる。
+
+```
+# if文の条件
+n = 100
+if n == 100 || n == 0
+    puts "n の値は、100と0のどちらかです。"
+end
+
+# 変数代入1
+# 最初に真と評価された値が代入される
+n = nil || false || 100 || true
+puts n               # 100
+
+# 変数代入2
+n || (n == 0)
+puts n              # 0
+```
+
+上記の `# 変数代入2` は、以下のように書き換えることができる。
+
+```
+# n || (n == 0) と同じ
+n ||= 0
+puts n      # 0
+```
