@@ -6,19 +6,19 @@
 
 通常、レシーバが持っていないメソッドを使おうとすると `NoMethodError` が発生する。
 
-```
+```ruby
 puts nil.reverse      # undefined method `reverse' for nil:NilClass (NoMethodError)
 ```
 
 しかし、レシーバが nil の場合にぼっち演算子 `&.` を使用して `オブジェクト&.メソッド` の形でメソッドを呼び出すことで、`NoMethodError` を回避して nil を返すことができる。
 
-```
+```ruby
 puts nil&.reverse       # nil
 ```
 
 ぼっち演算子を使って以下のように、nil の場合でもエラーを回避した上でハンドリングすることができる。
 
-```
+```ruby
 def operator(string)
     !(answer = string&.reverse).nil? ? answer : "Argument was nil"
 end
@@ -31,9 +31,11 @@ puts operator(nil)          # Argument was nil
 
 同じ `NoMethodError` でも、クラスを跨いだメソッドの使用によるエラーは回避できない。
 
-```
+```ruby
 puts 100&.upcase        # undefined method `upcase' for 100:Integer (NoMethodError)
 ```
+
+※ [try メソッドとの違い](https://github.com/DaisukeKarasawa/ruby-memo/tree/main/try)
 
 ## 論理演算子: 論理和 ||
 
@@ -51,7 +53,7 @@ A = false, B = true     # 片方がtrue
 
 論理和は以下のような使い方ができる。
 
-```
+```ruby
 # if文の条件
 n = 100
 if n == 100 || n == 0
@@ -70,7 +72,7 @@ puts n              # 0
 
 上記の `# 変数代入2` は、以下のように書き換えることができる。
 
-```
+```ruby
 # n || (n == 0) と同じ
 n ||= 0
 puts n      # 0
