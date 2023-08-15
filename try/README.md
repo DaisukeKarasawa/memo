@@ -41,7 +41,7 @@ puts user_name          # John
 
 # 存在しない場合
 user_hoge = User.first.try!(:hoge)
-puts user_hoge          #
+puts user_hoge          # NoMethodError
 
 # オブジェクトがnil
 object_nil = nil.try!(:name)
