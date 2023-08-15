@@ -32,7 +32,7 @@ puts object_nil         # nil
 
 ## try!メソッド
 
-基本的に try メソッドと同じだが、メソッドが存在しない場合は NoMethodError が発生する。（＝ぼっち演算子）
+基本的に try メソッドと同じだが、メソッドが存在しない場合は NoMethodError が発生する。
 
 ```ruby
 # 存在する場合
@@ -53,8 +53,6 @@ puts object_nil         # nil
 `try`メソッドは Rails の ActiveSupport で定義されていて、`&.`は Ruby に定義されている。従って、Rails を導入していない限りは`try`メソッドを使用できない。
 
 ## ぼっち演算子を使うべき理由
-
-- バグに気付きづらい
 
 - `&.`の方が速度が速い
 
