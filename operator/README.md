@@ -29,7 +29,7 @@ puts operator(nil)          # Argument was nil
 
 **注意点**
 
-同じ `NoMethodError` でも、クラスを跨いだメソッドの使用によるエラーは回避できない。
+- 同じ `NoMethodError` でも、クラスを跨いだメソッドの使用によるエラーは回避できない。
 
 ```ruby
 puts 100&.upcase        # undefined method `upcase' for 100:Integer (NoMethodError)
