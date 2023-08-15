@@ -26,9 +26,11 @@ User.insert_all(users)
 単一の SQL 分で複数のレコードをデータベースに更新または挿入する。ActiveRecord のコールバックやバリデーションをトリガーしない。また、パラメータはハッシュで渡す必要がある。
 
 ```ruby
+# モデル.upsert_all(パラメータ)
+
 users = [
     { id: 1, name: "John", age: 20, hobby: "baseball", created_at: Time.current, updated_at: Time.current },
-    # hobby: nilを記述する必要がある
+    # 構造一致のために hobby: nil を記述する必要がある
     { id: 2, name: "Alice", age: 20, hobby: nil, created_at: Time.current, updated_at: Time.current }
 ]
 User.upsert_all(users)
